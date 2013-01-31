@@ -1,0 +1,29 @@
+.form {
+    margin: 200px auto;
+    width: 500px;
+}
+#country {
+    width: 200px;
+}
+#ac_options {
+    background-color: #E3DCDF;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 204px;
+    max-height: 300px;
+    overflow: auto;
+}
+#ac_options li {
+    cursor: pointer;
+}
+#ac_options li.selected {
+    font-weight: bold;
+}
+#trigger {
+    border: 1px solid gray;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    width: 20px;
+}
