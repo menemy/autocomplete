@@ -20,6 +20,18 @@ function stopEvent(evt_in) {
     return false;
 }
 
+function getAttr(ele, attr) {
+    var result = (ele.getAttribute && ele.getAttribute(attr)) || null;
+    if( !result ) {
+        var attrs = ele.attributes;
+        var length = attrs.length;
+        for(var i = 0; i < length; i++)
+            if(attrs[i].nodeName === attr)
+                result = attrs[i].nodeValue;
+    }
+    return result;
+}
+
 String.prototype.addslashes = function () {
     return this.replace(/(["\\\.\|\[\]\^\*\+\?\$\(\)])/g, '\\$1');
 };

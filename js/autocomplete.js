@@ -100,7 +100,7 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
     function ac_mouseclick() {
         if (!ac_display) return;
         ac_mouse_on_list = 0;
-        ac_pos = this.getAttribute('pos');
+        ac_pos = getAttr(this, 'pos');
         ac_on_enter();
     }
 
@@ -114,8 +114,8 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
 
     function ac_ul_highlight() {
         ac_mouse_on_list = 1;
-        if(this.getAttribute('pos') != ac_pos){
-            ac_pos = this.getAttribute('pos');
+        if(getAttr(this, 'pos') != ac_pos){
+            ac_pos = getAttr(this, 'pos')
             ac_recreate_el();
         }
     }
