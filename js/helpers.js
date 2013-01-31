@@ -21,7 +21,7 @@ function stopEvent(evt_in) {
 }
 
 function getAttr(ele, attr) {
-    var result = ele.getAttribute(attr) || ele[attr] || null;
+    var result = (ele.getAttribute && ele.getAttribute(attr)) || ele[attr] || null;
     if( !result ) {
         var attrs = ele.attributes;
         if(!attrs) return null;
