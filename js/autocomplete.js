@@ -114,7 +114,7 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
 
     function ac_ul_highlight() {
         ac_mouse_on_list = 1;
-        console.log(getAttr(this, 'rel'))
+        console.log(this, getAttr(this, 'rel'))
         if(getAttr(this, 'rel') != ac_pos){
             ac_pos = getAttr(this, 'rel')
             ac_recreate_el();
