@@ -72,7 +72,7 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
             var c = document.createElement('li');
             container.appendChild(c);
             c.innerHTML = ac_parse(ac_matched[i]);
-            c.setAttribute('pos', i);
+            c.setAttribute('rel', i);
             if (ac_pos == i) c.className = 'selected';
             addEventHandler(c, 'click',ac_mouseclick);
             addEventHandler(c, 'mouseover',ac_ul_highlight);
@@ -100,7 +100,7 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
     function ac_mouseclick() {
         if (!ac_display) return;
         ac_mouse_on_list = 0;
-        ac_pos = getAttr(this, 'pos');
+        ac_pos = getAttr(this, 'rel');
         ac_on_enter();
     }
 
@@ -114,8 +114,8 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
 
     function ac_ul_highlight() {
         ac_mouse_on_list = 1;
-        if(getAttr(this, 'pos') != ac_pos){
-            ac_pos = getAttr(this, 'pos')
+        if(getAttr(this, 'rel') != ac_pos){
+            ac_pos = getAttr(this, 'rel')
             ac_recreate_el();
         }
     }
