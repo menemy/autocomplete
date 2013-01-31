@@ -21,13 +21,14 @@ function stopEvent(evt_in) {
 }
 
 function getAttr(ele, attr) {
-    var result = (ele.getAttribute && ele.getAttribute(attr)) || null;
+    var result = ele.getAttribute(attr) || ele[attr] || null;
     if( !result ) {
         var attrs = ele.attributes;
+        if(!attrs) return null;
         var length = attrs.length;
         for(var i = 0; i < length; i++)
-            if(attrs[i].nodeName === attr)
-                result = attrs[i].nodeValue;
+            if(attr[i].nodeName === attr)
+                result = attr[i].nodeValue;
     }
     return result;
 }
