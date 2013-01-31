@@ -49,6 +49,13 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
         return tobuild;
     }
 
+    function get_source_element(evt) {
+        if (window.event){
+            return window.event.srcElement;
+        }else{
+            return evt.target;
+        }
+    }
     function ac_recreate_el() {
         if (document.getElementById(ac_options_el)) {
             ac_options_scrollTop = document.getElementById(ac_options_el).scrollTop;
@@ -97,10 +104,11 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
         ac_recreate_el();
     }
 
-    function ac_mouseclick() {
+    function ac_mouseclick(evt) {
+        var curr = get_source_element(evt);
         if (!ac_display) return;
         ac_mouse_on_list = 0;
-        ac_pos = getAttr(this, 'rel');
+        ac_pos = getAttr(curr, 'rel');
         ac_on_enter();
     }
 
@@ -112,11 +120,12 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
         ac_mouse_on_list = 0;
     }
 
-    function ac_ul_highlight() {
+    function ac_ul_highlight(evt) {
+        var curr = get_source_element(evt);
         ac_mouse_on_list = 1;
-        console.log(this, getAttr(this, 'rel'))
-        if(getAttr(this, 'rel') != ac_pos){
-            ac_pos = getAttr(this, 'rel')
+        console.log(curr, getAttr(curr, 'rel'))
+        if(getAttr(curr, 'rel') != ac_pos){
+            ac_pos = getAttr(curr, 'rel')
             ac_recreate_el();
         }
     }
