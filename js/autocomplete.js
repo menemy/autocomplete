@@ -123,7 +123,6 @@ function ac(ac_element, ac_trigger, keywords, min_length) {
     function ac_ul_highlight(evt) {
         var curr = get_source_element(evt);
         ac_mouse_on_list = 1;
-        console.log(curr, getAttr(curr, 'rel'))
         if(getAttr(curr, 'rel') != ac_pos){
             ac_pos = getAttr(curr, 'rel')
             ac_recreate_el();
